@@ -7,6 +7,7 @@ const api = axios.create({
   withCredentials: true, // sends httpOnly refresh token cookie automatically
 })
 
+
 // --- Request interceptor: attach access token to every request ---
 api.interceptors.request.use((config) => {
   const token = store.getState().auth.accessToken
