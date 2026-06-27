@@ -4,7 +4,6 @@ import { setAccessToken, clearCredentials } from '@/features/auth/authSlice'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  
   withCredentials: true, // sends httpOnly refresh token cookie automatically
 })
 
