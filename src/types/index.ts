@@ -1,4 +1,4 @@
-import type { ComponentStatus, IncidentStatus } from '@/constants'
+import type { ComponentStatus, IncidentStatus, OverallStatus } from '@/constants'
 
 export interface User {
   id: number
@@ -12,6 +12,7 @@ export interface StatusPage {
   user_id: number
   name: string
   slug: string
+  overall_status: OverallStatus
   created_at: string
 }
 

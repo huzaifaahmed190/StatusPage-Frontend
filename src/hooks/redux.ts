@@ -5,4 +5,4 @@ import type { RootState, AppDispatch } from '@/app/store'
 // They are pre-typed so TypeScript knows the full state shape
 export const useAppDispatch = () => useDispatch<AppDispatch>()
 export const useAppSelector = <T>(selector: (state: RootState) => T): T =>
-  useSelector(selector)
+useSelector(selector)
