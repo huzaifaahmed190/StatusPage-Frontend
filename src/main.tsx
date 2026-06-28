@@ -5,12 +5,15 @@ import { RouterProvider } from 'react-router-dom'
 import { Toaster } from 'sonner'
 import { store } from '@/app/store'
 import { router } from '@/router'
+import AppInitializer from '@/components/shared/AppInitializer'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <AppInitializer>
+        <RouterProvider router={router} />
+      </AppInitializer>
       <Toaster position="top-right" richColors />
     </Provider>
   </StrictMode>

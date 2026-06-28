@@ -6,6 +6,7 @@ import PublicLayout from '@/layouts/PublicLayout'
 
 // Pages — imported lazily for better performance (code splitting)
 import { lazy, Suspense } from 'react'
+import GuestRoute from '@/components/shared/GuestRoute'
 
 const LoginPage = lazy(() => import('@/features/auth/LoginPage'))
 const RegisterPage = lazy(() => import('@/features/auth/RegisterPage'))
@@ -27,8 +28,8 @@ export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
     children: [
-      { path: '/login', element: withSuspense(<LoginPage />) },
-      { path: '/register', element: withSuspense(<RegisterPage />) },
+      { path: '/login', element: withSuspense(<GuestRoute><LoginPage /></GuestRoute>) },
+      { path: '/register', element: withSuspense(<GuestRoute><RegisterPage /></GuestRoute>) },
     ],
   },
 
