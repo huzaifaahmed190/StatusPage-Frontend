@@ -44,6 +44,12 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config
 
+    // Never retry the refresh endpoint itself — would cause infinite loop
+    if (originalRequest.url?.includes('/auth/refresh')) {
+      store.dispatch(clearCredentials())
+      return Promise.reject(error)
+    }
+
     if (error.response?.status === 401 && !originalRequest._retry) {
       if (isRefreshing) {
         // Queue this request and wait for the ongoing refresh to complete
